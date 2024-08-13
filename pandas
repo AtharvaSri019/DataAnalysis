@@ -1,0 +1,32 @@
+import pandas as pd
+
+# Step 1: Load CSV file into a DataFrame
+# Replace 'your_file.csv' with the path to your CSV file
+df = pd.read_csv('your_file.csv')
+
+# Step 2: Display the first few rows of the DataFrame
+print("First 5 rows of the DataFrame:")
+print(df.head())
+
+# Step 3: Filtering Data based on conditions
+# Example: Filter rows where a column 'Age' is greater than 30
+filtered_df = df[df['Age'] > 30]
+print("\nRows where Age is greater than 30:")
+print(filtered_df)
+
+# Step 4: Handling missing values
+# Example: Fill missing values in the 'Salary' column with the mean of that column
+df['Salary'].fillna(df['Salary'].mean(), inplace=True)
+print("\nDataFrame after filling missing values in 'Salary' column with mean:")
+print(df)
+
+# Step 5: Calculating Summary Statistics
+# Example: Calculate summary statistics for numeric columns
+summary_stats = df.describe()
+print("\nSummary Statistics:")
+print(summary_stats)
+
+# Step 6: Save the modified DataFrame to a new CSV file
+# Replace 'modified_file.csv' with your desired output filename
+df.to_csv('modified_file.csv', index=False)
+print("\nModified DataFrame saved to 'modified_file.csv'")
